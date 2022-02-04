@@ -44,7 +44,7 @@ function OrderComplete () {
             {/* <HeaderBarSpace/> */}
                 <div style={css.wrapper}>
                     <Grid.Container css={css.wrapperCenter} direction="column" justify="center" alignItems="center">
-                        <img src="/shopping.svg" style={{width: 'min(160px, 50vw)'}} alt="cat"/>
+                        <img src="/0b5.jpeg" style={{width: '50%'}} alt="cat"/>
                         <Grid><Text css={{...css.text, ...css.textTitle}}>Thank you for your purchase!</Text>
                         </Grid>
                         <Grid><Text css={{...css.text, ...css.textSubtitle}}>Your order ID is #1312312</Text></Grid>

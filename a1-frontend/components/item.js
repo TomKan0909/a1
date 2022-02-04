@@ -4,14 +4,18 @@ import { Card, Row, Text } from '@nextui-org/react';
 function Item ({ data }) {
     console.log(data);
     return (
-        <Card hoverable clickable width="100%">
+        <Card hoverable clickable cover>
             <Card.Body css={{ p: 0 }}>
             <Card.Image
                 objectFit="scale-down"
                 src={data.img}
-                width='100%'
-                height={120}
+                width="auto"
+                height="auto"
                 alt={data.title}
+                css={{
+                    maxHeight:"150px",
+                    maxWidth: "150px"
+                }}
             />
             </Card.Body>
             <Card.Footer justify="flex-start">
