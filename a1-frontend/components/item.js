@@ -7,7 +7,7 @@ function Item ({ data }) {
         <Card hoverable clickable width="100%">
             <Card.Body css={{ p: 0 }}>
             <Card.Image
-                objectFit="cover"
+                objectFit="scale-down"
                 src={data.img}
                 width='100%'
                 height={120}

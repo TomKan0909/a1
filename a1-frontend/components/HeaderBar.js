@@ -29,7 +29,7 @@ const css = {
     },
 
     button: {
-        margin: '15px',
+        margin: '20px',
     }
 }
 

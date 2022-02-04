@@ -7,8 +7,8 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 const css = {
     wrapperLeft: {
-        backgroundColor: `pink`,
-        width: `70%`,
+        backgroundColor: `white`,
+        width: `65%`,
         float: `left`,
     },
     wrapperRight: {
@@ -17,6 +17,7 @@ const css = {
         right: `0px`,
         width: `30%`,
         float: `left`,
+        marginRight: `20px`,
     },
 }
 
