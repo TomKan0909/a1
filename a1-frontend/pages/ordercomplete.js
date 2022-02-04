@@ -15,7 +15,7 @@ const css = {
     wrapperCenter: {
     },
     text: {
-        fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
+        // fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
         color: `black`,
         padding: `2px`,
         textAlign: `center`,

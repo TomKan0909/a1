@@ -1,5 +1,5 @@
-import { Text } from '@nextui-org/react';
-import { Grid } from '@nextui-org/react';
+import { Text, Grid, Button } from '@nextui-org/react';
+// import { Grid } from '@nextui-org/react';
 import Link from 'next/link'
 
 const css = {
@@ -15,18 +15,22 @@ const css = {
     },
     text: {
         padding: `0px 40px`,
-        fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
+        // fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
         fontWeight: `400`,
         fontSize: `16px`,
-        color: `gray`,
+        // color: `gray`,
         transition: '.3s',
-        '&:hover': {
-            color: `black`,
-        },
+        // '&:hover': {
+        //     color: `black`,
+        // },
     },
     textActive: {
         color: `black`,
     },
+
+    button: {
+        margin: '15px',
+    }
 }
 
 
@@ -37,14 +41,16 @@ function HeaderBar(props) {
                 <Grid>
                     <Link href="/">
                         <a>
-                            <Text css={ props.active === 0 ? {...css.text, ...css.textActive} : css.text}>SHOP</Text>
+                            {/* <Text css={ props.active === 0 ? {...css.text, ...css.textActive} : css.text}>SHOP</Text> */}
+                            <Button auto color="gradient" rounded bordered ghost css={css.button}>Shop</Button>
                         </a>
                     </Link>
                 </Grid>
                 <Grid>
                     <Link href="/cart">
                         <a>
-                            <Text css={ props.active === 1 ? {...css.text, ...css.textActive} : css.text}>CART</Text>
+                            {/* <Text css={ props.active === 1 ? {...css.text, ...css.textActive} : css.text}>CART</Text> */}
+                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart</Button>
                         </a>
                     </Link>
                 </Grid>
