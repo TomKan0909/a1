@@ -14,6 +14,7 @@ const css = {
         borderTop: "3px",
     },
     textTitle: {
+		userSelect: `none`,
 		textAlign: `center`,
 		textGradient: "45deg, $blue500 -20%, $pink500 50%",
     },
