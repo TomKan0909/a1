@@ -10,6 +10,9 @@ const css = {
     wrapper: {
         width: `100%`,
         padding: `40px`,
+        backgroundColor: `#CBECFE`,
+        borderRadius: `25px`,
+        border: `2px solid #206C7A`,
     },
     seperator: {
         marginTop: `20px`,
@@ -64,10 +67,10 @@ function CartStats() {
                     <Input fullWidth="true" placeholder="Promo" />
                 </Grid>
                 <Grid xs>
-                    <Button auto >Apply</Button>
+                    <Button auto color="gradient">Apply</Button>
                 </Grid>
             </Grid.Container>
-            <Button auto style={{width: '100%'}}>Submit Order</Button>
+            <Button auto color="gradient" style={{width: '100%'}}>Submit Order</Button>
         </div>
     );
 }

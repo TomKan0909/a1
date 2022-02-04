@@ -7,6 +7,8 @@ import { Input } from '@nextui-org/react';
 const css = {
     board: {
         backgroundColor: `#EEFFF4`,
+        borderRadius: `25px`,
+        border: `2px solid #206C7A`,
         height: `auto`,
         width: `100%`,
         marginLeft: `20px`,

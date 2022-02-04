@@ -7,12 +7,12 @@ import useMediaQuery from "../hooks/useMediaQuery";
 
 const css = {
     wrapperLeft: {
-        backgroundColor: `white`,
+        // backgroundColor: `white`,
         width: `65%`,
         float: `left`,
     },
     wrapperRight: {
-        backgroundColor: `tan`,
+        // backgroundColor: `tan`,
         position: `fixed`,
         right: `0px`,
         width: `30%`,
