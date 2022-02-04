@@ -164,7 +164,7 @@ export async function getStaticProps() {
   console.log("ran here");
   const data = {
       title: "Monke", 
-      price: '$34.99',
+      price: 'Ξ 4200',
       img: "/punk2890.png"
   }
   return {
