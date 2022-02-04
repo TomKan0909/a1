@@ -29,8 +29,8 @@ function Home({data}) {
             Welcome to <a href="https://nextjs.org">Next.js!</a>
           </h1> */}
           <Text h1 css={{
-      textGradient: "45deg, $blue500 -20%, $pink500 50%",
-      lineHeight: "1.15"}} weight="bold">Punk Shop</Text>
+      textGradient: "45deg, $blue500 -20%, $pink500 50%"
+      }} weight="bold" size={128}>Punk Shop</Text>
           
 
 
@@ -63,6 +63,69 @@ function Home({data}) {
               </p>
             </a> */}
             <Grid.Container gap={5} justify="flex-start">
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
+              <Grid >
+                <Item data={data}></Item>   
+              </Grid>
               <Grid >
                 <Item data={data}></Item>   
               </Grid>

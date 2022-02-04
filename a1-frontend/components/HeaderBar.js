@@ -11,7 +11,7 @@ const css = {
         height: '60px',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: 'white',
+        // backgroundColor: 'white',
     },
     text: {
         padding: `0px 40px`,
