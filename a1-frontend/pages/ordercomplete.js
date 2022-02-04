@@ -49,7 +49,7 @@ function OrderComplete () {
                         </Grid>
                         <Grid><Text css={{...css.text, ...css.textSubtitle}}>Your order ID is #1312312</Text></Grid>
                         <Grid>
-                            <Link href="/shop">
+                            <Link href="/">
                                 <a>
                                     <Button auto >
                                         <Text css={{...css.text, ...css.textButton}}>RETURN TO SHOP</Text>
