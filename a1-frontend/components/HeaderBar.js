@@ -39,7 +39,7 @@ function HeaderBar(props) {
         <div style={css.wrapper}>
             <Grid.Container justify="space-between">
                 <Grid>
-                    <Link href="/">
+                    <Link href="/shop">
                         <a>
                             {/* <Text css={ props.active === 0 ? {...css.text, ...css.textActive} : css.text}>SHOP</Text> */}
                             <Button auto color="gradient" rounded bordered ghost css={css.button}>Shop</Button>

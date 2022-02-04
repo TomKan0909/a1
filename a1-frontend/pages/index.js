@@ -1,15 +1,22 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Item from '../components/item'
+import ShopItem from '../components/ShopItem'
 import { Grid, NextUIProvider } from '@nextui-org/react';
 import { Button, Text } from '@nextui-org/react';
 import HeaderBarSpace from '../components/HeaderBarSpace';
 import HeaderBar from '../components/HeaderBar';
-
+import { useRouter } from 'next/router'
+import { useEffect } from 'react';
 
 function Home({data}) {
-  console.log(data);
+  const router = useRouter();
+
+  useEffect(() => {
+    //router.go(-1);
+    router.push('./shop');
+  })
+
   return (
     <NextUIProvider>
       <div className={styles.container}>
@@ -22,136 +29,6 @@ function Home({data}) {
           <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet"/>
         </Head>
 
-        
-        <main className={styles.main}>
-          <HeaderBarSpace/>
-          {/* <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
-          </h1> */}
-          <Text h1 css={{
-      textGradient: "45deg, $blue500 -20%, $pink500 50%"
-      }} weight="bold" size={128}>Punk Shop</Text>
-          
-
-
-          <div className={styles.grid}>
-            {/* <a href="https://nextjs.org/docs" className={styles.card}>
-              <h2>Documentation &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-
-            <a href="https://nextjs.org/learn" className={styles.card}>
-              <h2>Learn &rarr;</h2>
-              <p>Learn about Next.js in an interactive course with quizzes!</p>
-            </a>
-
-            <a
-              href="https://github.com/vercel/next.js/tree/canary/examples"
-              className={styles.card}
-            >
-              <h2>Examples &rarr;</h2>
-              <p>Discover and deploy boilerplate example Next.js projects.</p>
-            </a>
-
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              className={styles.card}
-            >
-              <h2>Deploy &rarr;</h2>
-              <p>
-                Instantly deploy your Next.js site to a public URL with Vercel.
-              </p>
-            </a> */}
-            <Grid.Container gap={5} justify="flex-start">
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-              <Grid >
-                <Item data={data}></Item>   
-              </Grid>
-
-            </Grid.Container>
-          </div>
-        </main>
-        <HeaderBar active={1}/>
       </div>
     </NextUIProvider>
   )

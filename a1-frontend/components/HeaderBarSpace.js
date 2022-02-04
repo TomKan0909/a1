@@ -10,7 +10,6 @@ const css = {
     },
 }
 
-
 function HeaderBarSpace() {
     return ( 
         <div style={css.wrapperPlaceholder}></div>
