@@ -41,7 +41,7 @@ const css = {
 function OrderComplete () {
     return (
         <div>
-            <HeaderBarSpace/>
+            {/* <HeaderBarSpace/> */}
                 <div style={css.wrapper}>
                     <Grid.Container css={css.wrapperCenter} direction="column" justify="center" alignItems="center">
                         <img src="/shopping.svg" style={{width: 'min(160px, 50vw)'}} alt="cat"/>
@@ -51,7 +51,7 @@ function OrderComplete () {
                         <Grid>
                             <Link href="/">
                                 <a>
-                                    <Button auto >
+                                    <Button auto shadow color="gradient" >
                                         <Text css={{...css.text, ...css.textButton}}>RETURN TO SHOP</Text>
                                     </Button>
                                 </a>
@@ -59,7 +59,7 @@ function OrderComplete () {
                         </Grid>
                     </Grid.Container>
                 </div>
-            <HeaderBar active={1}/>
+            {/* <HeaderBar active={1}/> */}
         </div>
     );
 }
