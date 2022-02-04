@@ -2,9 +2,19 @@ import { Text } from '@nextui-org/react';
 import { Grid } from '@nextui-org/react';
 import Link from 'next/link'
 
-
 const css = {
+    wrapper: {
+        top: `0px`,
+        left: `0px`,
+        width: `100%`,
+        position: `fixed`,
+        height: '60px',
+        display: 'flex',
+        alignItems: 'center',
+        backgroundColor: 'white',
+    },
     text: {
+        padding: `0px 40px`,
         fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
         fontWeight: `400`,
         fontSize: `16px`,
@@ -22,7 +32,7 @@ const css = {
 
 function HeaderBar(props) {
     return ( 
-        <div>
+        <div style={css.wrapper}>
             <Grid.Container justify="space-between">
                 <Grid>
                     <Link href="/shop">
