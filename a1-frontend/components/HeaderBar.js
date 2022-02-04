@@ -35,7 +35,7 @@ function HeaderBar(props) {
         <div style={css.wrapper}>
             <Grid.Container justify="space-between">
                 <Grid>
-                    <Link href="/shop">
+                    <Link href="/">
                         <a>
                             <Text css={ props.active === 0 ? {...css.text, ...css.textActive} : css.text}>SHOP</Text>
                         </a>
