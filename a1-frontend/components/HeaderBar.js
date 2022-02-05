@@ -11,7 +11,8 @@ const css = {
         height: '60px',
         display: 'flex',
         alignItems: 'center',
-        // backgroundColor: 'white',
+        backgroundColor: '#444444',
+        borderBottom: '3px solid black'
     },
     text: {
         padding: `0px 40px`,
