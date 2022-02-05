@@ -21,9 +21,8 @@ function ShopItem ({ data }) {
         <Card hoverable clickable cover onClick={handler}>
             <Card.Body css={{ p: 0 }}>
             <Card.Image
-                objectFit="scale-down"
                 src={data.img}
-                width="auto"
+                width="100%"
                 height="auto"
                 alt={data.title}
             />
@@ -71,7 +70,7 @@ function ShopItem ({ data }) {
                 </Card>
             </Grid>
             <Grid css={{width:"100%"}}>
-                <Card color="#CBECFE">
+                <Card color="#CBECFE" bordered shadow={false}>
                     <Text size={20}>
                         Cool and friendly individual!
                     </Text>
