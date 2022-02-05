@@ -50,7 +50,7 @@ function HeaderBar(props) {
                     <Link href="/cart">
                         <a>
                             {/* <Text css={ props.active === 1 ? {...css.text, ...css.textActive} : css.text}>CART</Text> */}
-                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart</Button>
+                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart (1)</Button>
                         </a>
                     </Link>
                 </Grid>

@@ -7,6 +7,7 @@ import { Button, Text } from '@nextui-org/react';
 import HeaderBarSpace from '../components/HeaderBarSpace';
 import HeaderBar from '../components/HeaderBar';
 import useMediaQuery from '../hooks/useMediaQuery';
+import { useState } from 'react';
 
 
 const css = {
@@ -21,18 +22,18 @@ const css = {
 }
 
 function Shop() {
-	let columns = 5;
+	const [columns, setColumns] = useState(5);
 
-	const break1 = useMediaQuery('(min-width: 1100px)');
-	const break2 = useMediaQuery('(min-width: 1000px)');
-	const break3 = useMediaQuery('(min-width: 600px)');	
-	const break4 = useMediaQuery('(min-width: 450px)');
+	//const break1 = useMediaQuery('(min-width: 1100px)');
+	//const break2 = useMediaQuery('(min-width: 1000px)');
+	//const break3 = useMediaQuery('(min-width: 600px)');	
+	//const break4 = useMediaQuery('(min-width: 450px)');
 
-	if (break1) columns = 5;
-	else if (break2) columns = 4;
-	else if (break3) columns = 3;
-	else if (break4) columns = 2;
-	else columns = 1;
+	//if (break1) setColumns(5);
+	//else if (break2) setColumns(4);
+	//else if (break3) setColumns(3);
+	//else if (break4) setColumns(2);
+	//else setColumns(1);
 
 	const data = {
 		title: "Monke", 
@@ -50,18 +51,6 @@ function Shop() {
 			Punk Shop
 		</Text>
 		<Grid.Container gap={5} justify="flex-start">
-			<Grid xs={12/columns}>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
-			<Grid xs={12/columns}>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
-			<Grid xs={12/columns}>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
-			<Grid xs={12/columns}>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
 			<Grid xs={12/columns}>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
