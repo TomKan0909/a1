@@ -50,23 +50,29 @@ function Shop() {
 			size={128}>
 			Punk Shop
 		</Text>
-		<Grid.Container gap={5} justify="flex-start">
-			<Grid xs={12/columns}>
+		<Grid.Container gap={5} justify="center">
+			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
-			<Grid xs={12/columns}>
+			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
-			<Grid xs={12/columns}>
+			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
-			<Grid xs={12/columns}>
+			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
-			<Grid xs={12/columns}>
+			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
-			<Grid xs={12/columns}>
+			<Grid>
+				<ShopItem data={data}></ShopItem>   
+			</Grid>
+			<Grid>
+				<ShopItem data={data}></ShopItem>   
+			</Grid>
+			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
 		</Grid.Container>
