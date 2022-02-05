@@ -39,16 +39,21 @@ const cssMediaBelow600 = {
 }
 
 function Cart() {
-    const isMediaAbove600px = true; //useMediaQuery('(min-width: 800px)');
+    const isMediaAbove600px = useMediaQuery('(min-width: 800px)');
+
+    const a = isMediaAbove600px ? css.wrapperLeft : cssMediaBelow600.wrapperLeft;
+    const b = isMediaAbove600px ? css.wrapperRight : cssMediaBelow600.wrapperRight;
+
+    console.log(a);
 
     return (
         <div>
             <HeaderBarSpace/>
 
-            <div style={isMediaAbove600px ? css.wrapperLeft : cssMediaBelow600.wrapperLeft}>
+            <div style={a}>
                 <CartItem/>
             </div>
-            <div style={isMediaAbove600px ? css.wrapperRight : cssMediaBelow600.wrapperRight}>
+            <div style={b}>
                 <CartStats/>
             </div>
 

@@ -1,21 +1,22 @@
 import {useEffect, useState} from 'react';
 
 
-// From https://medium.com/@ttennant/react-inline-styles-and-media-queries-using-a-custom-react-hook-e76fa9ec89f6
+// From https://fireship.io/snippets/use-media-query-hook/
 
 const useMediaQuery = (query) => {
-  if (typeof window == "undefined") return;
-
-  const mediaMatch = window.matchMedia(query);
-  const [matches, setMatches] = useState(mediaMatch.matches);
+  const [matches, setMatches] = useState(false);
 
   useEffect(() => {
-    const handler = e => setMatches(e.matches);
-    mediaMatch.addListener(handler);
-    return () => mediaMatch.removeListener(handler);
-  });
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, [matches, query]);
 
   return matches;
-};
+}
 
 export default useMediaQuery;

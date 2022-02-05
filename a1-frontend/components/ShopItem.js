@@ -71,7 +71,7 @@ function ShopItem ({ data }) {
                 </Card>
             </Grid>
             <Grid css={{width:"100%"}}>
-                <Card color="#CBECFE">
+                <Card color="#CBECFE" bordered shadow={false}>
                     <Text size={20}>
                         Cool and friendly individual!
                     </Text>
