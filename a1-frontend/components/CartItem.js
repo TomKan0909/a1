@@ -3,6 +3,7 @@ import { Text } from '@nextui-org/react';
 import Image from 'next/image'
 import { Button } from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
+import {React, useState } from 'react';
 
 const css = {
     board: {
@@ -36,6 +37,22 @@ const css = {
 }
 
 function CartItem() {
+    const [quantity, setQuantity] = useState(1);
+
+    function increment () {
+        setQuantity(quantity + 1)
+    }
+
+    function decrement () {
+        if (quantity > 1){
+            setQuantity(quantity - 1)
+        }else{
+            setQuantity(1)
+        }
+    }
+
+
+
     return (
         <Grid.Container css={css.board}>
             <Grid>
@@ -61,9 +78,9 @@ function CartItem() {
                     <Grid >
                         <Text css={{...css.text, ...css.textName, marginLeft:"20px"}}>Product Name</Text>
                         <Grid.Container wrap="nowrap" css={{marginLeft:"20px"}}>
-                                <Button shadow auto color="gradient">-</Button>
-                                <Input initialValue={1} width="50px"/>
-                                <Button shadow auto color="gradient">+</Button>
+                                <Button shadow auto color="gradient" onClick={decrement}>-</Button>
+                                <Button shadow auto ghost clickable="false" color="gradient">{quantity}</Button>
+                                <Button shadow auto color="gradient" onClick={increment}>+</Button>
                         </Grid.Container>
                     </Grid>
                     <Grid>

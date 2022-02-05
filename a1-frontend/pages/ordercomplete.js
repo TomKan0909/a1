@@ -4,6 +4,8 @@ import { Grid } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import Link from 'next/link'
 import { Text } from "@nextui-org/react";
+import Image from 'next/image';
+import pepe from '../public/0b5.jpeg'
 
 const css = {
     wrapper: {
@@ -40,11 +42,14 @@ const css = {
 
 function OrderComplete () {
     return (
+        
         <div>
+            {/* <Image src={pepe}></Image> */}
             {/* <HeaderBarSpace/> */}
                 <div style={css.wrapper}>
                     <Grid.Container css={css.wrapperCenter} direction="column" justify="center" alignItems="center">
-                        <img src="/0b5.jpeg" style={{width: '30%'}} alt="cat"/>
+                        <Image src={pepe}></Image>
+                        {/* <img src="/0b5.jpeg"/> */}
                         <Grid><Text css={{...css.text, ...css.textTitle}}>Thank you for your purchase!</Text>
                         </Grid>
                         <Grid><Text css={{...css.text, ...css.textSubtitle}}>Your order ID is #1312312</Text></Grid>

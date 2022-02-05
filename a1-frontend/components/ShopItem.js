@@ -22,6 +22,7 @@ function ShopItem ({ data }) {
             <Card.Body css={{ p: 0 }}>
             <Card.Image
                 src={data.img}
+                // src="https://lh3.googleusercontent.com/7ikHKJf9ESMxL5YwMkBgqAo7QHe5-POa1T1y43Lysp1yR_bPjC_gRDAtbDyNCOkZbz8JXNWJ50ene_w3uREivjFz4Otni2BctR5-og=w600"
                 width="100%"
                 height="auto"
                 alt={data.title}
