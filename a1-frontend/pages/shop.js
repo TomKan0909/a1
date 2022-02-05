@@ -7,6 +7,7 @@ import { Button, Text } from '@nextui-org/react';
 import HeaderBarSpace from '../components/HeaderBarSpace';
 import HeaderBar from '../components/HeaderBar';
 import useMediaQuery from '../hooks/useMediaQuery';
+import { useState } from 'react';
 
 
 const css = {
@@ -21,7 +22,19 @@ const css = {
 }
 
 function Shop() {
-	
+	const [columns, setColumns] = useState(5);
+
+	//const break1 = useMediaQuery('(min-width: 1100px)');
+	//const break2 = useMediaQuery('(min-width: 1000px)');
+	//const break3 = useMediaQuery('(min-width: 600px)');	
+	//const break4 = useMediaQuery('(min-width: 450px)');
+
+	//if (break1) setColumns(5);
+	//else if (break2) setColumns(4);
+	//else if (break3) setColumns(3);
+	//else if (break4) setColumns(2);
+	//else setColumns(1);
+
 	const data = {
 		title: "Monke", 
 		price: 'Ξ 4200',
@@ -38,18 +51,6 @@ function Shop() {
 			Punk Shop
 		</Text>
 		<Grid.Container gap={5} justify="center">
-			<Grid>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
-			<Grid>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
-			<Grid>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
-			<Grid>
-				<ShopItem data={data}></ShopItem>   
-			</Grid>
 			<Grid>
 				<ShopItem data={data}></ShopItem>   
 			</Grid>

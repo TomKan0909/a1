@@ -11,8 +11,8 @@ const css = {
         height: '60px',
         display: 'flex',
         alignItems: 'center',
-        backgroundColor: '#444444',
-        borderBottom: '3px solid black'
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
+        boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px',
     },
     text: {
         padding: `0px 40px`,
@@ -51,7 +51,7 @@ function HeaderBar(props) {
                     <Link href="/cart">
                         <a>
                             {/* <Text css={ props.active === 1 ? {...css.text, ...css.textActive} : css.text}>CART</Text> */}
-                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart</Button>
+                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart (1)</Button>
                         </a>
                     </Link>
                 </Grid>

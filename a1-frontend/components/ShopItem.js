@@ -56,34 +56,31 @@ function ShopItem ({ data }) {
                         width="auto"
                         height="auto"
                         alt={data.title}
-                        css={{
-                            maxHeight:"250px",
-                            maxWidth: "250px",
-                        }}
                     />
                     </Card.Body>
+                    <Card.Footer justify="flex-start">
+                    <Row justify="space-between" align="center">
+                        <Text b>
+                            {data.title}
+                        </Text>
+                        <Text css={{ color: "$accents4", fontWeight: "$bold" }}>
+                            {data.price}
+                        </Text>
+                    </Row>        
+                    </Card.Footer>
                 </Card>
             </Grid>
             <Grid css={{width:"100%"}}>
                 <Card color="#CBECFE">
-                    <Text h2 b>
-                        {data.title}
-                    </Text>
-                    <Text size={20} css={{paddingBottom:"20px"}}>
+                    <Text size={20}>
                         Cool and friendly individual!
                     </Text>
-                    <Text>
-                        ID: 9800
-                    </Text>
-                    <Text>
-                        Type: Alien
-                    </Text>
-                    <Text>
-                        Count: 4
-                    </Text>
-                    <Text>
-                        Accessories: Luxurious Beard, Hoodie, Earring, Horned Rim Glasses
-                    </Text>
+                    <ul>
+                        <li style={{listStyle: "disc"}}>ID: 9800</li>
+                        <li style={{listStyle: "disc"}}>Type: Alien</li>
+                        <li style={{listStyle: "disc"}}>Count: 4</li>
+                        <li style={{listStyle: "disc"}}>Accessories: Luxurious Beard, Hoodie, Earring, Horned Rim Glasses</li>
+                    </ul>  
                 </Card>
             </Grid>
         </Grid.Container>
@@ -96,14 +93,9 @@ function ShopItem ({ data }) {
                 <Text>Loren Ipsum</Text>
             </Modal.Body> */}
             <Modal.Footer>
-                <Row justify="space-between"  align="center">
-                    <Text css={{ color: "$accents4", fontWeight: "$bold" }}>
-                        {data.price}
-                    </Text>
-                    <Button shadow auto color="gradient" onClick={closeHandler}>
-                        Add to Cart
-                    </Button>
-                </Row>      
+                <Button shadow auto color="gradient" onClick={closeHandler}>
+                    Add to Cart
+                </Button>   
             </Modal.Footer>
         </Modal>
         </div>
