@@ -1,6 +1,7 @@
 import { Text, Grid, Button } from '@nextui-org/react';
 // import { Grid } from '@nextui-org/react';
-import Link from 'next/link'
+import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 const css = {
     wrapper: {
@@ -36,6 +37,8 @@ const css = {
 
 
 function HeaderBar(props) {
+    const cartLength = useSelector((state) => state.cart.value.length)
+    
     return ( 
         <div style={css.wrapper}>
             <Grid.Container justify="space-between">
@@ -51,7 +54,7 @@ function HeaderBar(props) {
                     <Link href="/cart">
                         <a>
                             {/* <Text css={ props.active === 1 ? {...css.text, ...css.textActive} : css.text}>CART</Text> */}
-                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart (1)</Button>
+                            <Button auto color ="gradient" rounded bordered ghost css={css.button}>Cart ({cartLength})</Button>
                         </a>
                     </Link>
                 </Grid>
