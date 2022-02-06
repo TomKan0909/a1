@@ -4,12 +4,14 @@ import CartItem from "../components/CartItem";
 import CartStats from "../components/CartStats";
 import HeaderBarSpace from "../components/HeaderBarSpace";
 import useMediaQuery from "../hooks/useMediaQuery";
+import { Text } from "@nextui-org/react";
 
 const css = {
     wrapperLeft: {
-        // backgroundColor: `white`,
-        width: `65%`,
+        //backgroundColor: `red`,
+        width: `70%`,
         float: `left`,
+        padding: `20px`,
     },
     wrapperRight: {
         // backgroundColor: `tan`,
@@ -17,7 +19,17 @@ const css = {
         right: `0px`,
         width: `30%`,
         float: `left`,
-        marginRight: `20px`,
+        padding: `20px`,
+    },
+    textHeading: {
+        paddingTop: `20px`,
+        paddingBottom: `20px`,
+    },
+    seperator: {
+        marginTop: `20px`,
+        marginBottom: `20px`,
+        height: `1px`,
+        backgroundColor: `lightgrey`,
     },
 }
 
@@ -25,7 +37,7 @@ const cssMediaBelow600 = {
     wrapperLeft: {
         ...css.wrapperLeft,
         ...{
-            width: `100%`
+            width: `100%`,
         },
     },
     wrapperRight: {
@@ -34,12 +46,13 @@ const cssMediaBelow600 = {
             position: `fixed`,
             bottom: `0px`,
             width: `100%`,
+            padding: `0px`,
         },
     },
 }
 
 function Cart() {
-    const isMediaAbove600px = useMediaQuery('(min-width: 800px)');
+    const isMediaAbove600px = useMediaQuery('(min-width: 1000px)');
 
     const a = isMediaAbove600px ? css.wrapperLeft : cssMediaBelow600.wrapperLeft;
     const b = isMediaAbove600px ? css.wrapperRight : cssMediaBelow600.wrapperRight;
@@ -51,6 +64,11 @@ function Cart() {
             <HeaderBarSpace/>
 
             <div style={a}>
+                <Text weight="bold" h1 css={css.textHeading}>Shopping Cart</Text>
+                <CartItem/>
+                <div style={css.seperator}></div>
+                <CartItem/>
+                <div style={css.seperator}></div>
                 <CartItem/>
             </div>
             <div style={b}>
