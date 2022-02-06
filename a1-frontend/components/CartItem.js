@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { Button } from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
 import {React, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {removeFromCart, increaseQuantity, decreaseQuantity} from '../features/cart/cartSlice'
 
 const css = {
     board: {
@@ -36,29 +38,32 @@ const css = {
     },
 }
 
-function CartItem() {
-    const [quantity, setQuantity] = useState(1);
+function CartItem({ data }) {
+    // const [quantity, setQuantity] = useState(1);
 
-    function increment () {
-        setQuantity(quantity + 1)
-    }
+    // function increment () {
+    //     setQuantity(quantity + 1)
+    // }
 
-    function decrement () {
-        if (quantity > 1){
-            setQuantity(quantity - 1)
-        }else{
-            setQuantity(1)
-        }
-    }
+    // function decrement () {
+    //     if (quantity > 1){
+    //         setQuantity(quantity - 1)
+    //     }else{
+    //         setQuantity(1)
+    //     }
+    // }
 
-
+    const cartData = data[0]
+    const quantity = data[1];
+    const dispatch = useDispatch();
+    
 
     return (
         <Grid.Container css={css.board}>
             <Grid>
                 <Card bordered cover float="left">
                     <Card.Image 
-                        src="/punk2890.png"
+                        src={cartData.img}
                         alt="cat"
                         width="auto"
                         height="auto"
@@ -76,19 +81,19 @@ function CartItem() {
             <Grid xs alignItems='center'>
                 <Grid.Container justify="space-between">
                     <Grid >
-                        <Text css={{...css.text, ...css.textName, marginLeft:"20px"}}>Product Name</Text>
+                        <Text css={{...css.text, ...css.textName, marginLeft:"20px"}}>{cartData.title}</Text>
                         <Grid.Container wrap="nowrap" css={{marginLeft:"20px"}}>
-                                <Button shadow auto color="gradient" onClick={decrement}>-</Button>
+                                <Button shadow auto color="gradient" onClick={() => dispatch(decreaseQuantity(cartData))}>-</Button>
                                 <Button shadow auto ghost clickable="false" color="gradient">{quantity}</Button>
-                                <Button shadow auto color="gradient" onClick={increment}>+</Button>
+                                <Button shadow auto color="gradient" onClick={() => dispatch(increaseQuantity(cartData))}>+</Button>
                         </Grid.Container>
                     </Grid>
                     <Grid>
                         <div>
-                            <Text css={{...css.text, ...css.textPrice}}>Ξ 4200</Text>
+                            <Text css={{...css.text, ...css.textPrice}}>{cartData.price}</Text>
                         </div>
                         <div>
-                            <Button auto ghost color="error">Remove</Button>
+                            <Button auto ghost color="error" onClick={() => dispatch(removeFromCart(cartData))}>Remove</Button>
                             {/* <Text css={{...css.text, ...css.textRemove}}>REMOVE</Text> */}
                         </div>
                     </Grid>
