@@ -9,6 +9,8 @@ import Link from 'next/link';
 import { calculateCheckoutPrice, calculateDiscount, calculateTax, calculateTotal } from '../utils/util';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState } from 'react';
+import { clearCart } from '../features/cart/cartSlice'
+
 const css = {
     wrapper: {
         minWidth: "300px",
@@ -39,6 +41,7 @@ function CartStats() {
     const [discount, setDiscount] = useState(0);
     const [userInputDiscountCode, setUserInputDiscountCode] = useState("");
 
+    const dispatch = useDispatch();
     function applyDiscount () {
         // console.log(userInputDiscountCode);
         switch (userInputDiscountCode) {
@@ -172,7 +175,7 @@ function CartStats() {
             </Grid.Container>
             <Link href="/ordercomplete">
                 <a>
-                    <Button auto color="gradient" style={{width: '100%'}} onClick={() => setTimeout(() => {}, 5000)}>Submit Order</Button>
+                    <Button auto color="gradient" style={{width: '100%'}} onClick={() => dispatch(clearCart())}>Submit Order</Button>
                 </a> 
             </Link>
             {/* <Button auto color="gradient" style={{width: '100%'}}>Submit Order</Button> */}
