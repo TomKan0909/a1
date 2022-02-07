@@ -14,8 +14,6 @@ const css = {
         alignItems: `center`,
         justifyContent: `center`,
     },
-    wrapperCenter: {
-    },
     text: {
         // fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
         color: `black`,
@@ -48,7 +46,10 @@ function OrderComplete () {
             {/* <HeaderBarSpace/> */}
                 <div style={css.wrapper}>
                     <Grid.Container css={css.wrapperCenter} direction="column" justify="center" alignItems="center">
-                        <Image src={pepe}></Image>
+                        
+                        <div style={{width: `65%`}}>
+                            <Image src={pepe}></Image>
+                        </div>
                         {/* <img src="/0b5.jpeg"/> */}
                         <Grid><Text css={{...css.text, ...css.textTitle}}>Thank you for your purchase!</Text>
                         </Grid>

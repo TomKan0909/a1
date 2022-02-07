@@ -24,9 +24,9 @@ const css = {
 function Shop() {
 	let columns = 5;
 
-	const break1 = useMediaQuery('(min-width: 1100px)');
-	const break2 = useMediaQuery('(min-width: 1000px)');
-	const break3 = useMediaQuery('(min-width: 600px)');	
+	const break1 = useMediaQuery('(min-width: 1200px)');
+	const break2 = useMediaQuery('(min-width: 1100px)');
+	const break3 = useMediaQuery('(min-width: 700px)');	
 	const break4 = useMediaQuery('(min-width: 450px)');
 
 	if (break1) columns = 5;

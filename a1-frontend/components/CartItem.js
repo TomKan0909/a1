@@ -9,21 +9,22 @@ import {removeFromCart, increaseQuantity, decreaseQuantity} from '../features/ca
 
 const css = {
     board: {
+        minWidth: `300px`,
         backgroundColor: `#EEFFF4`,
-        borderRadius: `25px`,
-        border: `2px solid #206C7A`,
+        //borderRadius: `25px`,
+        //border: `2px solid #206C7A`,
         height: `auto`,
         width: `100%`,
-        marginLeft: `20px`,
-        padding: `10px`
+        padding: `20px`
     },
     text: {
         // fontFamily: `'Roboto', sans-serif`, // MUST LOAD FONT IN HEAD TAG
         fontWeight: `300`,
         color: `black`,
+        whiteSpace: 'nowrap',
     },
     textName: {
-        fontWeight: `750`,
+        fontWeight: `600`,
         fontSize: `32px`,
     },
     textRemove: {
@@ -59,45 +60,49 @@ function CartItem({ data }) {
     
 
     return (
-        <Grid.Container css={css.board}>
+        <Grid.Container css={css.board} wrap="nowrap">
             <Grid>
-                <Card bordered cover float="left">
-                    <Card.Image 
-                        src={cartData.img}
-                        alt="cat"
-                        width="auto"
-                        height="auto"
-                        css={{
-                            maxHeight:"180px",
-                            maxWidth:"180px"
-                        }}
-                        // max-height="200px"
-                        // max-width="200px"
-                    />
-                </Card>
+                <div style={{display:"flex", alignItems: 'center', height: `100%`}}>
+                    <Card bordered cover float="left">
+                      <Card.Image 
+                          src={cartData.img}
+                          alt="cat"
+                          width="auto"
+                          height="auto"
+                          css={{
+                              maxHeight:"180px",
+                              maxWidth:"180px"
+                          }}
+                          // max-height="200px"
+                          // max-width="200px"
+                      />
+                  </Card>
+                </div>
             </Grid>
             
             {/* { <Image src="/cat.jpg" alt="cat" width="180px" height="180px" /> } */}
-            <Grid xs alignItems='center'>
-                <Grid.Container justify="space-between">
-                    <Grid >
-                        <Text css={{...css.text, ...css.textName, marginLeft:"20px"}}>{cartData.title}</Text>
-                        <Grid.Container wrap="nowrap" css={{marginLeft:"20px"}}>
+            <Grid xs direction="column" justify='center' alignItems='center'>
+                    <Grid.Container justify="space-between" alignItems='center' wrap="nowrap">
+                        <Grid>
+                            <Text css={{...css.text, ...css.textName, marginLeft:"40px", marginRight:"40px"}}>Product Name</Text>
+                        </Grid>
+                        <Grid>
+                            <Text css={{...css.text, ...css.textPrice}}>{cartData.price}</Text>
+                        </Grid>
+                    </Grid.Container>
+                    <Grid.Container justify="space-between" alignItems='center' wrap="nowrap">
+                        <Grid>
+                            <Button.Group css={{marginLeft:"40px"}} size="xs">
                                 <Button shadow auto color="gradient" onClick={() => dispatch(decreaseQuantity(cartData))}>-</Button>
                                 <Button shadow auto ghost clickable="false" color="gradient">{quantity}</Button>
                                 <Button shadow auto color="gradient" onClick={() => dispatch(increaseQuantity(cartData))}>+</Button>
-                        </Grid.Container>
-                    </Grid>
-                    <Grid>
-                        <div>
-                            <Text css={{...css.text, ...css.textPrice}}>{cartData.price}</Text>
-                        </div>
-                        <div>
-                            <Button auto ghost color="error" onClick={() => dispatch(removeFromCart(cartData))}>Remove</Button>
-                            {/* <Text css={{...css.text, ...css.textRemove}}>REMOVE</Text> */}
-                        </div>
-                    </Grid>
-                </Grid.Container>
+                            </Button.Group>
+                        </Grid>
+                        <Grid>
+                            <Button size="xs" auto ghost color="error">Remove</Button>
+                        </Grid>
+                    </Grid.Container>
+
             </Grid> 
         </Grid.Container>
     );

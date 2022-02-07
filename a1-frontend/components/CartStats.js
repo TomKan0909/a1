@@ -8,11 +8,13 @@ import {MoreCircle} from 'react-iconly'
 
 const css = {
     wrapper: {
+        minWidth: "300px",
         width: `100%`,
-        padding: `40px`,
-        backgroundColor: `#CBECFE`,
-        borderRadius: `25px`,
-        border: `2px solid #206C7A`,
+        padding: `20px`,
+        //backgroundColor: `#CBECFE`,
+        backgroundColor: `white`,
+        borderRadius: `10px`,
+        boxShadow: `rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px`,
     },
     seperator: {
         marginTop: `20px`,
@@ -22,7 +24,10 @@ const css = {
     },
     input: {
         cursor: "pointer",
-    }
+    },
+    textTotal: {
+
+    },
 }
 
 function CartStats() {
@@ -43,34 +48,51 @@ function CartStats() {
             </Grid.Container>
             <Grid.Container justify="space-between">
                 <Grid>
-                    <Grid.Container>
+                    <Grid.Container align="center">
                         <Grid>
                             <Text>
-                                Discount
+                                Discount 
                             </Text>
                         </Grid>
                         <Grid>
-                            <Tooltip placement="bottom" content={
-                                <Card css={{ w: "200px" }}>
-                                <Card.Header>
-                                <Text b>Available Discounts</Text>
-                                </Card.Header>
-                                <Divider/>
-                                <Card.Body css={{ py: '$10' }}>
-                                <Text h5>
-                                    0xl23k4jf34: - 20% 
-                                </Text>
-                                <Text h5>
-                                    0x23l4kjv96: - 30%  
-                                </Text>
-                                <Text h5>
-                                    0xdfglkj54v: - Ξ 50    
-                                </Text>
-                                </Card.Body>
-                            </Card>
-                            }>
-                                <MoreCircle fill="currentColor" filled/>
-                            </Tooltip>
+                            <div style={{marginLeft: '6px', display:"flex"}}>
+                                <Tooltip placement="bottom" content={
+                                    <Card css={{ w: "200px" }}>
+                                            <Card.Header>
+                                                <Text b h5>Available Discounts</Text>
+                                            </Card.Header>
+                                            <Divider/>
+                                            <Card.Body css={{ py: '$10' }}>
+                                                <Grid.Container justify="space-between">
+                                                    <Grid>
+                                                        <Text>
+                                                        0xl23k4jf34:
+                                                        </Text>
+                                                    </Grid>
+                                                    <Grid>
+                                                        <Text>
+                                                        - 20%  
+                                                        </Text>
+                                                    </Grid>
+                                                </Grid.Container>
+                                                <Grid.Container justify="space-between">
+                                                    <Grid>
+                                                        <Text>
+                                                        0xl23k4jf34:
+                                                        </Text>
+                                                    </Grid>
+                                                    <Grid>
+                                                        <Text>
+                                                        - 20%  
+                                                        </Text>
+                                                    </Grid>
+                                                </Grid.Container>
+                                            </Card.Body>
+                                    </Card>
+                                }>
+                                    <MoreCircle display="block" fill="currentColor" filled/>
+                                </Tooltip>
+                            </div>
                         </Grid>
                     </Grid.Container>
                 </Grid>
@@ -95,24 +117,30 @@ function CartStats() {
             <div style={css.seperator}></div>
             <Grid.Container justify="space-between">
                 <Grid>
-                    <Text>
+                    <Text size={20}>
                         Total
                     </Text>
                 </Grid>
                 <Grid>
-                    <Text>
+                    <Text size={20}>
                         Ξ 4020                       
                     </Text>
                 </Grid>
             </Grid.Container>
+
+            <div style={css.seperator}></div>
+
             <Grid.Container wrap="nowrap">
                 <Grid xs={12}>
-                    <Input fullWidth="true" placeholder="Promo" />
+                    <Input bordered fullWidth="true" placeholder="Promo" />
                 </Grid>
                 <Grid xs>
                     <Button auto color="gradient">Apply</Button>
                 </Grid>
             </Grid.Container>
+
+            <div style={css.seperator}></div>
+
             <Button auto color="gradient" style={{width: '100%'}}>Submit Order</Button>
         </div>
     );
