@@ -6,6 +6,7 @@ import { Input } from '@nextui-org/react';
 import {React, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {removeFromCart, increaseQuantity, decreaseQuantity} from '../features/cart/cartSlice'
+import { calculatePrice } from '../utils/util';
 
 const css = {
     board: {
@@ -87,7 +88,7 @@ function CartItem({ data }) {
                             <Text css={{...css.text, ...css.textName, marginLeft:"40px", marginRight:"40px"}}>{cartData.title}</Text>
                         </Grid>
                         <Grid>
-                            <Text css={{...css.text, ...css.textPrice}}>{cartData.price}</Text>
+                            <Text css={{...css.text, ...css.textPrice}}>{calculatePrice(quantity, cartData.price)}</Text>
                         </Grid>
                     </Grid.Container>
                     <Grid.Container justify="space-between" alignItems='center' wrap="nowrap">
@@ -99,7 +100,7 @@ function CartItem({ data }) {
                             </Button.Group>
                         </Grid>
                         <Grid>
-                            <Button size="xs" auto ghost color="error">Remove</Button>
+                            <Button size="xs" auto ghost color="error" onClick={() => dispatch(removeFromCart(cartData))}>Remove</Button>
                         </Grid>
                     </Grid.Container>
 
