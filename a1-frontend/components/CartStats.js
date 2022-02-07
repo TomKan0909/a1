@@ -6,8 +6,9 @@ import { Button, Card, Divider} from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
 import {MoreCircle} from 'react-iconly';
 import Link from 'next/link';
-
-
+import { calculateCheckoutPrice, calculateDiscount, calculateTax, calculateTotal } from '../utils/util';
+import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 const css = {
     wrapper: {
         minWidth: "300px",
@@ -33,7 +34,35 @@ const css = {
 }
 
 function CartStats() {
+    const cartItems = useSelector((state) => state.cart.value)
+    const checkoutPrice = calculateCheckoutPrice(cartItems);
+    const [discount, setDiscount] = useState(0);
+    const [userInputDiscountCode, setUserInputDiscountCode] = useState("");
 
+    function applyDiscount () {
+        // console.log(userInputDiscountCode);
+        switch (userInputDiscountCode) {
+            case "0xv439c3d":
+                setDiscount(0.2)
+                break;
+            case "0xl23k4jf34":
+                setDiscount(0.3)
+                break;
+            default:
+                setDiscount(0)
+                break;
+        }
+    }
+
+    function getInputValue (event) {
+        setUserInputDiscountCode(event.target.value)
+    }
+
+    const discountAmount = calculateDiscount(checkoutPrice, discount);
+    const taxAmount = calculateTax(discountAmount, checkoutPrice, 0.01);
+    const totalPrice = calculateTotal(taxAmount, discountAmount, checkoutPrice);
+    // const total = 
+    
     return (
         <div style={css.wrapper}>
 
@@ -45,7 +74,7 @@ function CartStats() {
                 </Grid>
                 <Grid>
                     <Text>
-                        Ξ 4200   
+                        {checkoutPrice}  
                     </Text>
                 </Grid>
             </Grid.Container>
@@ -69,7 +98,7 @@ function CartStats() {
                                                 <Grid.Container justify="space-between">
                                                     <Grid>
                                                         <Text>
-                                                        0xl23k4jf34:
+                                                        0xv439c3d:
                                                         </Text>
                                                     </Grid>
                                                     <Grid>
@@ -86,7 +115,7 @@ function CartStats() {
                                                     </Grid>
                                                     <Grid>
                                                         <Text>
-                                                        - 20%  
+                                                        - 30%  
                                                         </Text>
                                                     </Grid>
                                                 </Grid.Container>
@@ -101,7 +130,7 @@ function CartStats() {
                 </Grid>
                 <Grid>
                     <Text>
-                        - Ξ 200                       
+                        {discountAmount}                      
                     </Text> 
                 </Grid>
             </Grid.Container>
@@ -113,7 +142,7 @@ function CartStats() {
                 </Grid>
                 <Grid>
                     <Text>
-                        Ξ 20                       
+                        {taxAmount}                       
                     </Text> 
                 </Grid>
             </Grid.Container>
@@ -126,7 +155,7 @@ function CartStats() {
                 </Grid>
                 <Grid>
                     <Text size={20}>
-                        Ξ 4020                       
+                        {totalPrice}            
                     </Text>
                 </Grid>
             </Grid.Container>
@@ -135,10 +164,10 @@ function CartStats() {
 
             <Grid.Container wrap="nowrap">
                 <Grid xs={12}>
-                    <Input bordered fullWidth="true" placeholder="Promo" />
+                    <Input bordered fullWidth="true" placeholder="Promo" onChange={getInputValue}/>
                 </Grid>
                 <Grid xs>
-                    <Button auto color="gradient">Apply</Button>
+                    <Button auto color="gradient" onClick={applyDiscount}>Apply</Button>
                 </Grid>
             </Grid.Container>
             <Link href="/ordercomplete">
