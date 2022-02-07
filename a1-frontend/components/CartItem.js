@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { Button } from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
 import {React, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {removeFromCart, increaseQuantity, decreaseQuantity} from '../features/cart/cartSlice'
 
 const css = {
     board: {
@@ -37,41 +39,44 @@ const css = {
     },
 }
 
-function CartItem() {
-    const [quantity, setQuantity] = useState(1);
+function CartItem({ data }) {
+    // const [quantity, setQuantity] = useState(1);
 
-    function increment () {
-        setQuantity(quantity + 1)
-    }
+    // function increment () {
+    //     setQuantity(quantity + 1)
+    // }
 
-    function decrement () {
-        if (quantity > 1){
-            setQuantity(quantity - 1)
-        }else{
-            setQuantity(1)
-        }
-    }
+    // function decrement () {
+    //     if (quantity > 1){
+    //         setQuantity(quantity - 1)
+    //     }else{
+    //         setQuantity(1)
+    //     }
+    // }
 
-
+    const cartData = data[0]
+    const quantity = data[1];
+    const dispatch = useDispatch();
+    
 
     return (
         <Grid.Container css={css.board} wrap="nowrap">
             <Grid>
                 <div style={{display:"flex", alignItems: 'center', height: `100%`}}>
                     <Card bordered cover float="left">
-                        <Card.Image 
-                            src="/punk2890.png"
-                            alt="cat"
-                            width="auto"
-                            height="auto"
-                            css={{
-                                maxHeight:"180px",
-                                maxWidth:"180px"
-                            }}
-                            // max-height="200px"
-                            // max-width="200px"
-                        />
-                    </Card>
+                      <Card.Image 
+                          src={cartData.img}
+                          alt="cat"
+                          width="auto"
+                          height="auto"
+                          css={{
+                              maxHeight:"180px",
+                              maxWidth:"180px"
+                          }}
+                          // max-height="200px"
+                          // max-width="200px"
+                      />
+                  </Card>
                 </div>
             </Grid>
             
@@ -82,21 +87,22 @@ function CartItem() {
                             <Text css={{...css.text, ...css.textName, marginLeft:"40px", marginRight:"40px"}}>Product Name</Text>
                         </Grid>
                         <Grid>
-                            <Text css={{...css.text, ...css.textPrice}}>Ξ 4200</Text>
+                            <Text css={{...css.text, ...css.textPrice}}>{cartData.price}</Text>
                         </Grid>
                     </Grid.Container>
                     <Grid.Container justify="space-between" alignItems='center' wrap="nowrap">
                         <Grid>
                             <Button.Group css={{marginLeft:"40px"}} size="xs">
-                                <Button shadow color="gradient" onClick={decrement}><div style={{width:"20px"}}>-</div></Button>
-                                <Button size="sm" shadow auto ghost clickable="false" color="gradient"><div style={{width:"20px"}}>{quantity}</div></Button>
-                                <Button shadow color="gradient" onClick={increment}><div style={{width:"20px"}}>+</div></Button>
+                                <Button shadow auto color="gradient" onClick={() => dispatch(decreaseQuantity(cartData))}>-</Button>
+                                <Button shadow auto ghost clickable="false" color="gradient">{quantity}</Button>
+                                <Button shadow auto color="gradient" onClick={() => dispatch(increaseQuantity(cartData))}>+</Button>
                             </Button.Group>
                         </Grid>
                         <Grid>
                             <Button size="xs" auto ghost color="error">Remove</Button>
                         </Grid>
                     </Grid.Container>
+
             </Grid> 
         </Grid.Container>
     );

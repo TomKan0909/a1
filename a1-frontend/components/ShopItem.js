@@ -1,5 +1,7 @@
 import { Card, Row, Text, Modal, Button, Grid} from '@nextui-org/react';
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from '../features/cart/cartSlice';
 
 const css = {
     divider : {
@@ -14,7 +16,14 @@ function ShopItem ({ data }) {
     //console.log(data);
     const [visible, setVisible] = React.useState(false);
     const handler = () => setVisible(true);
-    const closeHandler = ()=> setVisible(false);
+    const closeHandler = () => setVisible(false);
+
+    const dispatch = useDispatch();
+    function compAddToCart (itemData){
+        console.log(itemData);
+        dispatch(addToCart(itemData));
+        closeHandler();
+    }
 
     return (
         <div style={{width: "100%"}}>
@@ -93,7 +102,7 @@ function ShopItem ({ data }) {
                 <Text>Loren Ipsum</Text>
             </Modal.Body> */}
             <Modal.Footer>
-                <Button shadow auto color="gradient" onClick={closeHandler}>
+                <Button shadow auto color="gradient" onClick={() => compAddToCart(data)}>
                     Add to Cart
                 </Button>   
             </Modal.Footer>

@@ -41,6 +41,12 @@ function Shop() {
 		img: "/punk2890.png"
 	}
 
+	const data2 = {
+		title: "WEKJHDSF",
+		price: 'Ξ 420',
+		img: "/punk2890.png"
+	}
+
 	return (
 	<div>
 		<HeaderBarSpace/>
@@ -55,7 +61,7 @@ function Shop() {
 				<ShopItem data={data}></ShopItem>   
 			</Grid>
 			<Grid xs={12/columns}>
-				<ShopItem data={data}></ShopItem>   
+				<ShopItem data={data2}></ShopItem>   
 			</Grid>
 			<Grid xs={12/columns}>
 				<ShopItem data={data}></ShopItem>   

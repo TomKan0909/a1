@@ -5,6 +5,7 @@ import CartStats from "../components/CartStats";
 import HeaderBarSpace from "../components/HeaderBarSpace";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { Text } from "@nextui-org/react";
+import { useSelector, useDispatch } from 'react-redux';
 
 const css = {
     wrapperLeft: {
@@ -59,17 +60,18 @@ function Cart() {
 
     console.log(a);
 
+    const cartItems = useSelector((state) => state.cart.value)
+    console.log(cartItems);
+    // const reactCartItems = cartItems.map((cartItem) => <CartItem data={data}></CartItem>)
+
     return (
         <div>
             <HeaderBarSpace/>
 
             <div style={a}>
                 <Text weight="bold" h1 css={css.textHeading}>Shopping Cart</Text>
-                <CartItem/>
-                <div style={css.seperator}></div>
-                <CartItem/>
-                <div style={css.seperator}></div>
-                <CartItem/>
+                {cartItems.map((cartItem) => <CartItem data={cartItem}></CartItem>
+                                              <div style={css.seperator}></div>)}
             </div>
             <div style={b}>
                 <CartStats/>
