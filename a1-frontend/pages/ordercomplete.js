@@ -47,9 +47,9 @@ function OrderComplete () {
                 <div style={css.wrapper}>
                     <Grid.Container css={css.wrapperCenter} direction="column" justify="center" alignItems="center">
                         
-                        <div style={{width: `65%`}}>
+                        {/* <div style={{width: `65%`, margin:"0 auto"}}> */}
                             <Image src={pepe}></Image>
-                        </div>
+                        {/* </div> */}
                         {/* <img src="/0b5.jpeg"/> */}
                         <Grid><Text css={{...css.text, ...css.textTitle}}>Thank you for your purchase!</Text>
                         </Grid>
