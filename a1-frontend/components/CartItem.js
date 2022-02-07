@@ -84,7 +84,7 @@ function CartItem({ data }) {
             <Grid xs direction="column" justify='center' alignItems='center'>
                     <Grid.Container justify="space-between" alignItems='center' wrap="nowrap">
                         <Grid>
-                            <Text css={{...css.text, ...css.textName, marginLeft:"40px", marginRight:"40px"}}>Product Name</Text>
+                            <Text css={{...css.text, ...css.textName, marginLeft:"40px", marginRight:"40px"}}>{cartData.title}</Text>
                         </Grid>
                         <Grid>
                             <Text css={{...css.text, ...css.textPrice}}>{cartData.price}</Text>

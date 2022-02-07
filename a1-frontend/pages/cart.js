@@ -70,8 +70,10 @@ function Cart() {
 
             <div style={a}>
                 <Text weight="bold" h1 css={css.textHeading}>Shopping Cart</Text>
-                {cartItems.map((cartItem) => <CartItem data={cartItem}></CartItem>
-                                              <div style={css.seperator}></div>)}
+                {cartItems.map((cartItem) => <>
+                    <CartItem data={cartItem}></CartItem>
+                    <div style={css.seperator}></div>
+                </>)}
             </div>
             <div style={b}>
                 <CartStats/>

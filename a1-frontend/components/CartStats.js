@@ -4,7 +4,9 @@ import Image from 'next/image';
 import { Container, Row, Col } from '@nextui-org/react';
 import { Button, Card, Divider} from '@nextui-org/react';
 import { Input } from '@nextui-org/react';
-import {MoreCircle} from 'react-iconly'
+import {MoreCircle} from 'react-iconly';
+import Link from 'next/link';
+
 
 const css = {
     wrapper: {
@@ -31,6 +33,7 @@ const css = {
 }
 
 function CartStats() {
+
     return (
         <div style={css.wrapper}>
 
@@ -138,10 +141,12 @@ function CartStats() {
                     <Button auto color="gradient">Apply</Button>
                 </Grid>
             </Grid.Container>
-
-            <div style={css.seperator}></div>
-
-            <Button auto color="gradient" style={{width: '100%'}}>Submit Order</Button>
+            <Link href="/ordercomplete">
+                <a>
+                    <Button auto color="gradient" style={{width: '100%'}} onClick={() => setTimeout(() => {}, 5000)}>Submit Order</Button>
+                </a> 
+            </Link>
+            {/* <Button auto color="gradient" style={{width: '100%'}}>Submit Order</Button> */}
         </div>
     );
 }
