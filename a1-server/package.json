@@ -14,5 +14,8 @@
     "express": "^4.17.2"
   },
   "type": "module",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node" : "16.x"
+  }
 }
